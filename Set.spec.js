@@ -62,7 +62,7 @@ describe('Set', () => {
 
     })
 
-    describe('intersection works', () => {
+    describe('Union works', () => {
         test('if sets have common numbers', () => {
             let A = Set();
             let B = Set();
@@ -70,9 +70,9 @@ describe('Set', () => {
             A.add(2);
             B.add(2);
             B.add(3);
-            expect(Intersection(A, B).has(2)).toEqual(true);
-            expect(Intersection(A, B).has(1)).toEqual(false);
-            expect(Intersection(A, B).has(3)).toEqual(false);            
+            expect(Union(A, B).has(2)).toEqual(true);
+            expect(Union(A, B).has(1)).toEqual(true);
+            expect(Union(A, B).has(3)).toEqual(true);            
         })
 
         test('if sets have common strings', () => {
@@ -82,9 +82,9 @@ describe('Set', () => {
             A.add('Bob');
             B.add('Bob');
             B.add('Charlie');
-            expect(Intersection(A, B).has('Bob')).toEqual(true);
-            expect(Intersection(A, B).has('Alice')).toEqual(false);
-            expect(Intersection(A, B).has('Charlie')).toEqual(false);
+            expect(Union(A, B).has('Bob')).toEqual(true);
+            expect(Union(A, B).has('Alice')).toEqual(true);
+            expect(Union(A, B).has('Charlie')).toEqual(true);
         })
 
         test('if sets have nothing in common', () => {
@@ -93,9 +93,9 @@ describe('Set', () => {
             A.add('Alice');
             B.add('Bob');
             B.add('Charlie');
-            expect(Intersection(A, B).has('Bob')).toEqual(false);
-            expect(Intersection(A, B).has('Alice')).toEqual(false);
-            expect(Intersection(A, B).has('Charlie')).toEqual(false);
+            expect(Union(A, B).has('Bob')).toEqual(true);
+            expect(Union(A, B).has('Alice')).toEqual(true);
+            expect(Union(A, B).has('Charlie')).toEqual(true);
         })
     })
 
